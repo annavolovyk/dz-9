@@ -1,6 +1,6 @@
 package src;
 
-public class Person {
+public abstract class Person {
     private String firstName;
     private String lastName;
     private Person partner;
@@ -18,15 +18,15 @@ public class Person {
     public Person(String alex, String smith, Object anna, int age, boolean isMarried) {
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName (String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLastName(){
+    public String getLastName() {
         return lastName;
     }
 
@@ -42,7 +42,7 @@ public class Person {
         this.age = age;
     }
 
-    public Object getPartner() {
+    public Person getPartner() {
         return partner;
     }
 
@@ -50,11 +50,10 @@ public class Person {
         this.partner = partner;
     }
 
-    public boolean isMarried() {
-        return isMarried;
-    }
 
-    public void setMarried(boolean married) {
-        isMarried = married;
-    }
+    public abstract boolean isRetired();
+
+    public abstract void registerPartnership(Person partner);
+
+    public abstract void deregisterPartnership(boolean returnToOldLastName);
 }
