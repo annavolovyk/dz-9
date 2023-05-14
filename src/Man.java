@@ -1,19 +1,27 @@
 package src;
 
-public abstract class Man extends Person {
+public class Man extends Person {
     private String firstName;
     private String lastName;
     private Person partner;
     private int age;
-    private boolean isMarried;
 
-    public Man(String firstName, String lastName, Object partner, int age, boolean isMarried) {
-        super(firstName, lastName, partner, age, isMarried);
+    public Man(String firstName, String lastName, Object partner, int age) {
+        super(firstName, lastName, partner, age);
     }
 
     @Override
     public boolean isRetired() {
         return getAge() > 65;
+    }
+
+    @Override
+    public void registerPartnership(Person partner) {
+
+    }
+    @Override
+    public void deregisterPartnership(boolean returnToOldLastName) {
+
     }
 }
 

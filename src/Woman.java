@@ -1,6 +1,6 @@
 package src;
 
-public abstract class Woman extends Person {
+public class Woman extends Person {
     private String firstName;
     private String lastName;
     private Person partner;
@@ -8,7 +8,7 @@ public abstract class Woman extends Person {
     private String oldLastName;
 
 
-    public Woman(String anna, String black, Object alex, int age, boolean isMarried) {
+    public Woman(String anna, String black, Object alex, int age) {
         super();
     }
 
@@ -21,20 +21,21 @@ public abstract class Woman extends Person {
     @Override
     public void registerPartnership(Person partner) {
         if (partner == null) {
-            System.out.println("Has no partner");
-        }
+            this.lastName = partner.getLastName();
+            setLastName(partner.getLastName());
+        } else lastName  = this.lastName;
     }
 
     @Override
     public void deregisterPartnership(boolean returnToOldLastName) {
-        if (this.partner == null) {
-            System.out.println(this.getFirstName() + " " + this.getLastName() + "- has no partner.");
+        if (partner == null) {
+            System.out.println(getFirstName() + " " + getLastName() + "- has no partner.");
             return;
         }
         if (returnToOldLastName) {
-            this.setLastName(this.oldLastName);
+            setLastName(oldLastName);
         }
-        this.partner = null;
+        setPartner(null);
     }
 }
 
