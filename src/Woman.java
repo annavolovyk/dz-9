@@ -1,34 +1,29 @@
 package src;
 
 public class Woman extends Person {
-    private String firstName;
-    private String lastName;
-    private Person partner;
-    private int age;
+
     private String oldLastName;
 
-
-    public Woman(String anna, String black, Object alex, int age) {
-        super();
+    public Woman(String firstName, String lastName, int age, Person partner) {
+        super(firstName, lastName, age, partner);
     }
-
 
     @Override
     public boolean isRetired() {
+
         return getAge() > 60;
     }
 
-    @Override
-    public void registerPartnership(Person partner) {
-        if (partner == null) {
-            this.lastName = partner.getLastName();
-            setLastName(partner.getLastName());
-        } else lastName  = this.lastName;
+
+    public void registerPartnership() {
+        if (getPartner() == null) {
+            setLastName(getPartner().getLastName());
+        } else
+            System.out.println("Has a partner");;
     }
 
-    @Override
     public void deregisterPartnership(boolean returnToOldLastName) {
-        if (partner == null) {
+        if (getPartner() == null) {
             System.out.println(getFirstName() + " " + getLastName() + "- has no partner.");
             return;
         }

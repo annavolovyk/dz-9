@@ -6,16 +6,12 @@ public abstract class Person {
     private Person partner;
     private int age;
 
-    public Person() {
+    public Person(String firstName, String lastName, int age, Person partner) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.partner = partner;
         this.age = age;
     }
-
-    public Person(String alex, String smith, Object anna, int age) {
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -51,7 +47,4 @@ public abstract class Person {
 
     public abstract boolean isRetired();
 
-    public abstract void registerPartnership(Person partner);
-
-    public abstract void deregisterPartnership(boolean returnToOldLastName);
 }
